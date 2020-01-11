@@ -6,7 +6,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 
 // import "../styles/index.sass";
 import "../styles/App.scss";
-
+import Header from "./Header";
 const TemplateWrapper = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
@@ -43,13 +43,13 @@ const TemplateWrapper = ({ children }) => {
         }
       `}
       render={data => (
-<div>
-         {/* <div className={`container ${showMenu ? "is-open" : ""}`}>
+<div className="container">
            <HelmetDatoCms 
-        //     favicon={data.datoCmsSite.faviconMetaTags}
-        //     seo={data.datoCmsHome.seoMetaTags}
-        //   />
-          {/* <div className="container__sidebar">
+             favicon={data.datoCmsSite.faviconMetaTags}
+             seo={data.datoCmsHome.seoMetaTags}
+           />
+           <Header/>
+           {/* <div className="container__sidebar">
             <div className="sidebar">
               <h6 className="sidebar__title">
                 <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
@@ -85,7 +85,7 @@ const TemplateWrapper = ({ children }) => {
                 {data.datoCmsHome.copyright}
               </div>
             </div>
-          </div> */}
+          </div>  */}
           {/* <div className="container__body">
             <div className="container__mobile-header">
               <div className="mobile-header">
@@ -104,8 +104,11 @@ const TemplateWrapper = ({ children }) => {
               </div>
             </div>
             {children}
-          </div> */}
-                      {children}
+                  </div> */}
+                  <div className="content">
+                  {children}
+                  </div>
+                      
         </div>
       )}
     />

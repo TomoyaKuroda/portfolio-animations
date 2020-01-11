@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700i&display=swap");
+@import "./variables/colors.scss";
+@import "./blocks/header.scss";
 $break-small: 768px;
 $break-large: 1200px;
 
@@ -14,10 +16,9 @@ html {
 
 .hero {
   visibility: hidden;
-  height: 100vh;
+  height: calc(100vh - 100px);
   overflow: hidden;
   .container {
-    // width: 1440px;
     max-width: 1440px;
     margin: 0 auto;
 
@@ -26,15 +27,14 @@ html {
       align-items: center;
       justify-content: space-between;
       margin: 0 24px;
-      height: 100vh;
+      height: calc(100vh - 100px);
       .hero-content {
         width: 50%;
+        padding-bottom: 100px;
         .hero-content-inner {
           width: 400px;
           color: #323232;
           margin: 0 auto;
-
-
           h1 {
             font-weight: 500;
             font-size: 32px;
@@ -99,7 +99,7 @@ html {
       }
       .hero-images {
         width: 50%;
-        height: 100vh;
+        height: calc(100vh - 100px);
         position: relative;
         @media screen and (max-width: $break-small) {
             display: none;
@@ -134,3 +134,9 @@ html {
     }
   }
 }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+

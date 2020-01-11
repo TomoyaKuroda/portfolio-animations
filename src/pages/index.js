@@ -8,7 +8,7 @@ import firstImg from '../images/firstLaptop.jpg'
 import secondImg from '../images/secondLaptop.jpg'
 // import {TimelineLite ,TweenMax, Power3} from 'gsap';
 import gsap from "gsap"
-const IndexPage = ({ data }) => {
+const IndexPage = (props,{ data }) => {
   let app = useRef(null)
   let images = useRef(null)
   let content = useRef(null)
@@ -88,7 +88,7 @@ return (
               Passionate about development and collaborating with people.
               </p>
               <div className="btn-row">
-                <button className="explore-button">Explore
+                <button className="explore-button" onClick={props.handleMenu}>Explore
                   <div className="arrow-icon">
                     <img src={arrow} alt="row"/>
                   </div>
