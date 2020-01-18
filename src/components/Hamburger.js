@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 // import { Link } from "gatsby";
-import TransitionLink, { TransitionPortal } from 'gatsby-plugin-transition-link'
+import TransitionLink, {
+  TransitionPortal
+} from "gatsby-plugin-transition-link";
 import {
   staggerText,
   staggerReveal,
@@ -33,18 +35,17 @@ const Hamburger = ({ state }) => {
   let reveal1 = useRef(null);
   let reveal2 = useRef(null);
   let cityBackground = useRef(null);
-  let line1 = React.createRef()
-  let line2 = React.createRef()
-  let line3 = React.createRef()
+  let line1 = React.createRef();
+  let line2 = React.createRef();
+  let line3 = React.createRef();
   let info = useRef(null);
 
-
-  const animationTest = () =>  staggerRevealClose(reveal2, reveal1);
+  const animationTest = () => staggerRevealClose(reveal2, reveal1);
   useEffect(() => {
     // If the menu is open and we click the menu button to close it.
     if (state.clicked === false) {
       // If menu is closed and we want to open it.
-        console.log('staggerRevealClose')
+      console.log("staggerRevealClose");
       staggerRevealClose(reveal2, reveal1);
       // Set menu to display none
       gsap.to(menuLayer, { duration: 1, css: { display: "none" } });
@@ -67,17 +68,19 @@ const Hamburger = ({ state }) => {
   }, [state]);
 
   return (
-    <div ref={el => (menuLayer = el)} className='hamburger-menu'>
+    <div ref={el => (menuLayer = el)} className="hamburger-menu">
       <div
         ref={el => (reveal1 = el)}
-        className='menu-secondary-background-color'></div>
-      <div ref={el => (reveal2 = el)} className='menu-layer'>
+        className="menu-secondary-background-color"
+      ></div>
+      <div ref={el => (reveal2 = el)} className="menu-layer">
         <div
           ref={el => (cityBackground = el)}
-          className='menu-city-background'></div>
-        <div className='container'>
-          <div className='wrapper'>
-            <div className='menu-links'>
+          className="menu-city-background"
+        ></div>
+        <div className="container">
+          <div className="wrapper">
+            <div className="menu-links">
               <nav>
                 <ul>
                   <li ref={el => (line1 = el)}>
@@ -86,44 +89,53 @@ const Hamburger = ({ state }) => {
                       onMouseOut={e => handleHoverExit(e)}
                       exit={{
                         length: 1,
-                        trigger: ({ exit,node }) =>{
-                            gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                                duration: 0.8,
-                                height: 0,
-                                ease: "power3.inOut",
-                                stagger: {
-                                  amount: 0.07
-                                }
-                              });
-                              gsap.to(node.querySelector('.content'), {
-                                duration: 0,
-                                opacity: 0,
-                              });
-
-                      }}}
+                        trigger: ({ exit, node }) => {
+                          gsap.to(
+                            [
+                              node.querySelector(".menu-layer"),
+                              node.querySelector(
+                                ".menu-secondary-background-color"
+                              )
+                            ],
+                            {
+                              duration: 0.8,
+                              height: 0,
+                              ease: "power3.inOut",
+                              stagger: {
+                                amount: 0.07
+                              }
+                            }
+                          );
+                          gsap.to(node.querySelector(".content"), {
+                            duration: 0,
+                            opacity: 0
+                          });
+                        }
+                      }}
                       entry={{
                         delay: 0, // new page appear
                         // length: 1,
                         trigger: ({ entry, node }) => {
-                            let content = node.querySelector('.content')
-                            content.style.opacity='0'
-                            // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                            //     duration: 0.8,
-                            //     height: 0,
-                            //     ease: "power3.inOut",
-                            //     stagger: {
-                            //       amount: 0.07
-                            //     }
-                            //   });
-                            gsap.to(node.querySelector('.content'), {
-                                delay: .5,
-                                duration:.5,
-                                opacity: 1,
-                                ease: "power3.inOut",
-                              });
+                          let content = node.querySelector(".content");
+                          content.style.opacity = "0";
+                          // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
+                          //     duration: 0.8,
+                          //     height: 0,
+                          //     ease: "power3.inOut",
+                          //     stagger: {
+                          //       amount: 0.07
+                          //     }
+                          //   });
+                          gsap.to(node.querySelector(".content"), {
+                            delay: 0.5,
+                            duration: 0.5,
+                            opacity: 1,
+                            ease: "power3.inOut"
+                          });
                         }
                       }}
-                      to='/'>
+                      to="/"
+                    >
                       Home
                     </TransitionLink>
                   </li>
@@ -133,44 +145,53 @@ const Hamburger = ({ state }) => {
                       onMouseOut={e => handleHoverExit(e)}
                       exit={{
                         length: 1,
-                        trigger: ({ exit,node }) =>{
-                            gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                                duration: 0.8,
-                                height: 0,
-                                ease: "power3.inOut",
-                                stagger: {
-                                  amount: 0.07
-                                }
-                              });
-                              gsap.to(node.querySelector('.content'), {
-                                duration: 0,
-                                opacity: 0,
-                              });
-
-                      }}}
+                        trigger: ({ exit, node }) => {
+                          gsap.to(
+                            [
+                              node.querySelector(".menu-layer"),
+                              node.querySelector(
+                                ".menu-secondary-background-color"
+                              )
+                            ],
+                            {
+                              duration: 0.8,
+                              height: 0,
+                              ease: "power3.inOut",
+                              stagger: {
+                                amount: 0.07
+                              }
+                            }
+                          );
+                          gsap.to(node.querySelector(".content"), {
+                            duration: 0,
+                            opacity: 0
+                          });
+                        }
+                      }}
                       entry={{
                         delay: 0, // new page appear
                         // length: 1,
                         trigger: ({ entry, node }) => {
-                            let content = node.querySelector('.content')
-                            content.style.opacity='0'
-                            // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                            //     duration: 0.8,
-                            //     height: 0,
-                            //     ease: "power3.inOut",
-                            //     stagger: {
-                            //       amount: 0.07
-                            //     }
-                            //   });
-                            gsap.to(node.querySelector('.content'), {
-                                delay: .5,
-                                duration:.5,
-                                opacity: 1,
-                                ease: "power3.inOut",
-                              });
+                          let content = node.querySelector(".content");
+                          content.style.opacity = "0";
+                          // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
+                          //     duration: 0.8,
+                          //     height: 0,
+                          //     ease: "power3.inOut",
+                          //     stagger: {
+                          //       amount: 0.07
+                          //     }
+                          //   });
+                          gsap.to(node.querySelector(".content"), {
+                            delay: 0.5,
+                            duration: 0.5,
+                            opacity: 1,
+                            ease: "power3.inOut"
+                          });
                         }
                       }}
-                      to='/'>
+                      to="/projects"
+                    >
                       Projects
                     </TransitionLink>
                   </li>
@@ -180,50 +201,59 @@ const Hamburger = ({ state }) => {
                       onMouseOut={e => handleHoverExit(e)}
                       exit={{
                         length: 1,
-                        trigger: ({ exit,node }) =>{
-                            gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                                duration: 0.8,
-                                height: 0,
-                                ease: "power3.inOut",
-                                stagger: {
-                                  amount: 0.07
-                                }
-                              });
-                              gsap.to(node.querySelector('.content'), {
-                                duration: 0,
-                                opacity: 0,
-                              });
-
-                      }}}
+                        trigger: ({ exit, node }) => {
+                          gsap.to(
+                            [
+                              node.querySelector(".menu-layer"),
+                              node.querySelector(
+                                ".menu-secondary-background-color"
+                              )
+                            ],
+                            {
+                              duration: 0.8,
+                              height: 0,
+                              ease: "power3.inOut",
+                              stagger: {
+                                amount: 0.07
+                              }
+                            }
+                          );
+                          gsap.to(node.querySelector(".content"), {
+                            duration: 0,
+                            opacity: 0
+                          });
+                        }
+                      }}
                       entry={{
                         delay: 0, // new page appear
                         // length: 1,
                         trigger: ({ entry, node }) => {
-                            let content = node.querySelector('.content')
-                            content.style.opacity='0'
-                            // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
-                            //     duration: 0.8,
-                            //     height: 0,
-                            //     ease: "power3.inOut",
-                            //     stagger: {
-                            //       amount: 0.07
-                            //     }
-                            //   });
-                            gsap.to(node.querySelector('.content'), {
-                                delay: .5,
-                                duration:.5,
-                                opacity: 1,
-                                ease: "power3.inOut",
-                              });
+                          let content = node.querySelector(".content");
+                          content.style.opacity = "0";
+                          // gsap.to([node.querySelector('.menu-layer'), node.querySelector('.menu-secondary-background-color')], {
+                          //     duration: 0.8,
+                          //     height: 0,
+                          //     ease: "power3.inOut",
+                          //     stagger: {
+                          //       amount: 0.07
+                          //     }
+                          //   });
+                          gsap.to(node.querySelector(".content"), {
+                            delay: 0.5,
+                            duration: 0.5,
+                            opacity: 1,
+                            ease: "power3.inOut"
+                          });
                         }
                       }}
-                      to='/contact'>
+                      to="/contact"
+                    >
                       Contact me
                     </TransitionLink>
                   </li>
                 </ul>
               </nav>
-              <div ref={el => (info = el)} className='info'>
+              <div ref={el => (info = el)} className="info">
                 {/* <h3>Our Promise</h3>
                 <p>
                   The passage experienced a surge in popularity during the 1960s
@@ -232,7 +262,7 @@ const Hamburger = ({ state }) => {
                   their software.
                 </p> */}
               </div>
-              <div className='locations'>
+              <div className="locations">
                 {/* Locations: */}
                 {/* Returning the list of cities */}
                 {/* {cities.map(el => (
